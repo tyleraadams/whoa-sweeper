@@ -1,0 +1,52 @@
+.board {
+  display: flex;
+  flex-flow: row wrap;
+  width: 50%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.board__space {
+  background: blue;
+  border: 1px solid black;
+  flex-basis: calc((100% - 18px)/9);
+  max-width: calc((100% - 18px)/9);
+  position: relative;
+}
+.board__space--revealed {
+   background: grey;
+}
+.board__space--revealed--mine {
+   background: red;
+}
+.board__space--9 {
+  padding-top: calc((100% - 18px)/9);
+  flex-basis: calc((100% - 18px)/9);
+  max-width: calc((100% - 18px)/9);
+}
+
+.board__space--16 {
+  padding-top: calc((100% - 32px)/16);
+  flex-basis: calc((100% - 32px)/16);
+  max-width: calc((100% - 32px)/16);
+}
+
+.board__space--20 {
+  padding-top: calc((100% - 40px)/20);
+  flex-basis: calc((100% - 40px)/20);
+  max-width: calc((100% - 40px)/20);
+}
+
+.board__value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.board__value--revealed {
+  display: block;
+}
