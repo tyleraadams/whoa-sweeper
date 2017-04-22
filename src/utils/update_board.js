@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 
-function calculateSurroundingCooridinates(x, y) {
+function calculateSurroundingCoordinates(x, y) {
   return [
     [x - 1, y],
     [x + 1, y],
@@ -22,15 +22,27 @@ function getValue(obj) {
   return get(obj, 'value');
 }
 
+function getRevealed(obj) {
+  return get(obj, 'revealed');
+}
+
 function revealSurrounding (coordPair, newBoard) {
   const x = coordPair[0];
   const y = coordPair[1];
   const thisRow = get(newBoard, y);
   const thisSpace = get(thisRow, x);
 
-  if (thisSpace) {
+  if (thisSpace && getRevealed(thisSpace) === false) {
     setRevealed(thisSpace);
+    if (getValue(thisSpace) === 0) {
+      recurse(x, y, newBoard);
+    }
   }
+}
+
+function recurse(spaceIndex, rowIndex, newBoard) {
+  const surroundingCoords = calculateSurroundingCoordinates(spaceIndex, rowIndex);
+  surroundingCoords.forEach(pair => revealSurrounding(pair,newBoard))
 }
 
 export default function updateBoard(board, rowIndex, spaceIndex) {
@@ -52,12 +64,9 @@ export default function updateBoard(board, rowIndex, spaceIndex) {
       const newBoard = board.map(newRow => newRow.map(newSpace => {
         return newSpace;
       }));
-
       const newSpace = newBoard[rowIndex][spaceIndex];
       setRevealed(newSpace);
-
-      const surroundingCoords = calculateSurroundingCooridinates(spaceIndex, rowIndex);
-      surroundingCoords.forEach(pair => revealSurrounding(pair,newBoard))
+      recurse(spaceIndex, rowIndex, newBoard)
       return newBoard;
     },
     isAdjacent: function() {
