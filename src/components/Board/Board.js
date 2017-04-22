@@ -23,6 +23,7 @@ class Board extends Component {
       })
       this.props.onGameStatusChange('inProgress');
     }
+
     if (nextProps.gameStatus !== this.props.gameStatus) {
 			this.setState({
         inProgress: nextProps.gameStatus === 'inProgress'
