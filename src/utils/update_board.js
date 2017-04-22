@@ -50,7 +50,8 @@ export default function updateBoard(board, rowIndex, spaceIndex) {
   const value = clickedSpace.value;
 
   const lookup = {
-    x: function() {
+    x: function(onGameStatusChange) {
+      onGameStatusChange('lost');
       return board.map(newRow => newRow.map(newSpace => {
           if (getValue(newSpace) === 'x')  {
             setRevealed(newSpace);
@@ -60,7 +61,7 @@ export default function updateBoard(board, rowIndex, spaceIndex) {
         })
       )
     },
-    0: function () {
+    0: function (onGameStatusChange) {
       const newBoard = board.map(newRow => newRow.map(newSpace => {
         return newSpace;
       }));
@@ -69,7 +70,7 @@ export default function updateBoard(board, rowIndex, spaceIndex) {
       recurse(spaceIndex, rowIndex, newBoard)
       return newBoard;
     },
-    isAdjacent: function() {
+    isAdjacent: function(onGameStatusChange) {
       return [ ...board.slice(0, rowIndex),
         [...board[rowIndex].slice(0, spaceIndex),
         { revealed: true, value },
