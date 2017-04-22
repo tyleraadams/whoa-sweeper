@@ -28,7 +28,7 @@ class Board extends Component {
 		const space = Number(event.target.getAttribute('data-space'));
 
 		this.setState({
-			gameBoard: updateBoard(this.state.gameBoard, row, space)
+			gameBoard: updateBoard(this.state.gameBoard, row, space)()
 		});
 	}
 
