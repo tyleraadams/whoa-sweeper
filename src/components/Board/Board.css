@@ -2,73 +2,12 @@
   display: flex;
   flex-flow: row wrap;
   width: 50%;
-  max-width: 400px;
+  max-width: 450px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
-}
-
-.board__space {
-  background: #DDDDDD;
-  border: 0.5px solid #AAAAAA;
-  flex-basis: calc((100% - 18px)/9);
-  max-width: calc((100% - 18px)/9);
-  position: relative;
-}
-
-.board__space--revealed {
-  background: #ccc;
-}
-
-.board__space--flagged {
-  background: url('/whoa_sweeper/flag.png') no-repeat no-repeat center;
-  background-size: 50%;
-  background-color: #DDDDDD;
-}
-
-.board__space--revealed--mine {
-  background: url('/whoa_sweeper/mine.png') no-repeat no-repeat center;
-  background-size: 50%;
-  background-color: #FF4136;
-}
-
-.board__space--9 {
-  padding-top: calc((100% - 18px)/9);
-  flex-basis: calc((100% - 18px)/9);
-  max-width: calc((100% - 18px)/9);
-}
-
-.board__space--16 {
-  padding-top: calc((100% - 32px)/16);
-  flex-basis: calc((100% - 32px)/16);
-  max-width: calc((100% - 32px)/16);
-}
-
-.board__space--20 {
-  padding-top: calc((100% - 40px)/20);
-  flex-basis: calc((100% - 40px)/20);
-  max-width: calc((100% - 40px)/20);
-}
-
-.board__value {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-  font-size: 14px;
-  color: #111111;
-}
-
-.board__value--revealed {
-  display: block;
-}
-
-.board__value--revealed--mine {
-  display: none;
-}
-
-.messages {
-  min-height: 18px;
-  margin-top: 20px;
+  border-style: solid;
+  border-color: #AAAAAA;
+  border-width: 1px 0 0 1px;
+  margin-bottom: 50px;
 }
