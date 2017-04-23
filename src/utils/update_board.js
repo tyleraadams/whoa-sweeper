@@ -13,6 +13,21 @@ function calculateSurroundingCoordinates(x, y) {
   ];
 }
 
+function checkForWin(board, onGameStatusChange) {
+  const allSpace = [].concat.apply([], board);
+  const hasWon = allSpace.filter(space => {
+    return !isMine(space);
+  }).map(space => {
+    return getRevealed(space);
+  }).filter(isRevealed => {
+    return !isRevealed;
+  }).indexOf(false) === -1;
+
+  if (hasWon) {
+    onGameStatusChange('won');
+  }
+}
+
 function setRevealed(obj) {
   obj.revealed = true;
   return obj;
@@ -20,6 +35,10 @@ function setRevealed(obj) {
 
 function getValue(obj) {
   return get(obj, 'value');
+}
+
+function isMine(obj) {
+  return getValue(obj) === 'x';
 }
 
 function getRevealed(obj) {
@@ -56,7 +75,6 @@ export default function updateBoard(board, rowIndex, spaceIndex, isRightClick) {
           if (getValue(newSpace) === 'x')  {
             setRevealed(newSpace);
           }
-
           return newSpace;
         })
       )
@@ -67,24 +85,27 @@ export default function updateBoard(board, rowIndex, spaceIndex, isRightClick) {
       }));
       const newSpace = newBoard[rowIndex][spaceIndex];
       setRevealed(newSpace);
-      recurse(spaceIndex, rowIndex, newBoard)
+      recurse(spaceIndex, rowIndex, newBoard);
+      checkForWin(newBoard, onGameStatusChange);
       return newBoard;
     },
     rightClick: function() {
       return [ ...board.slice(0, rowIndex),
         [...board[rowIndex].slice(0, spaceIndex),
         { value: clickedSpace.value , flagged: true },
-        ...board[rowIndex].slice(spaceIndex + 1, board[rowIndex].length ) ],
+        ...board[rowIndex].slice(spaceIndex + 1, board[rowIndex].length) ],
         ...board.slice(rowIndex + 1, board.length )
       ];
     },
     isAdjacent: function(onGameStatusChange) {
-      return [ ...board.slice(0, rowIndex),
+      const newBoard =  [ ...board.slice(0, rowIndex),
         [...board[rowIndex].slice(0, spaceIndex),
         { revealed: true, value },
-        ...board[rowIndex].slice(spaceIndex + 1, board[rowIndex].length ) ],
+        ...board[rowIndex].slice(spaceIndex + 1, board[rowIndex].length) ],
         ...board.slice(rowIndex + 1, board.length )
       ];
+      checkForWin(newBoard, onGameStatusChange);
+      return newBoard;
     }
   };
   return lookup[value] || lookup.isAdjacent;
