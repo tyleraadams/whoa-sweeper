@@ -19,5 +19,5 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://myusername.github.io/my-app"
+  "homepage": "http://tyleraadams.com/whoa_sweeper"
 }
