@@ -25,6 +25,7 @@
   background-size: 50%;
   background-color: #DDDDDD;
 }
+
 .board__space--revealed--mine {
   background: url('/mine.png') no-repeat no-repeat center;
   background-size: 50%;
@@ -55,8 +56,20 @@
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
+  font-size: 14px;
+  color: #111111;
 }
 
 .board__value--revealed {
   display: block;
+}
+
+.board__value--revealed--mine {
+  display: none;
+}
+
+
+.messages {
+  min-height: 18px;
+  margin-top: 20px;
 }

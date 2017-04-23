@@ -12,7 +12,7 @@ class Space extends Component {
       onClick={this.props.onClick}
 			onContextMenu={this.props.onClick}
 			className={`board__space board__space--${this.props.size} ${revealed ? 'board__space--revealed' : ''} ${isMine && revealed ?  'board__space--revealed--mine': '' } ${flagged ?  'board__space--flagged' : ''}`}>
-			<span className={`board__value ${revealed ? 'board__value--revealed' : ''}`}>{this.props.value}</span>
+			<span className={`board__value ${revealed ? 'board__value--revealed' : ''} ${isMine && revealed ? 'board__value--revealed--mine' : ''}`}>{this.props.value}</span>
 		</div>
 		);
 	}
