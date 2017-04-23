@@ -1,9 +1,8 @@
-'use strict';
-const shuffle = require('./utils/shuffle');
-const divideEvenly = require('./utils/divide_evenly');
-const markUpBoard = require('./utils/markup_board');
+import shuffle from './shuffle';
+import divideEvenly from './divide_evenly';
+import markUpBoard from './markup_board';
 
-module.exports = function gameBoard(config) {
+export default function gameBoard(config) {
 	const spaces = [];
 	const spacesTotal = config.spacesTotal || 81;
 	const minesTotal = config.minesTotal || 10;

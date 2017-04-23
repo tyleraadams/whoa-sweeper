@@ -1,8 +1,6 @@
-'use strict';
+import createGameConfig from './create_game_config';
 
-const createGameConfig = require('./create_game_config');
-
-module.exports = function getGameDifficulty(difficulty) {
+export default function getGameDifficulty(difficulty) {
 	const difficulties = {
 		easy: createGameConfig(81, 10),
  		medium: createGameConfig(256, 40),

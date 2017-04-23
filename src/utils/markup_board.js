@@ -1,8 +1,6 @@
-'use strict';
+import get from 'lodash/get';
 
-const get = require('lodash/get');
-
-module.exports = function markUpBoard(board) {
+export default function markUpBoard(board) {
   return board.map(function returnBoard(row, rowIndex) {
   	return row.map(function returnRow(space, spaceIndex) {
   		let value = space;

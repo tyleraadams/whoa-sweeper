@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = function divideBoardEvenly(array) {
+export default function divideBoardEvenly(array) {
 	const numberOfRows = Math.sqrt(array.length);
 	const board = [];
 	for (let i = 0; i < numberOfRows; i++) {

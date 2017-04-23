@@ -3,8 +3,8 @@ import './Board.css';
 import Space from '../Space/Space';
 import createSpaceModels from '../../utils/create_space_models';
 import updateBoard from '../../utils/update_board';
-import makeGameBoard from '../../../gameboard';
-import getGameDifficulty from '../../../utils/get_game_difficulty';
+import makeGameBoard from '../../utils/gameboard';
+import getGameDifficulty from '../../utils/get_game_difficulty';
 
 function determineIfRightClick(e) {
   let isRightMB;
