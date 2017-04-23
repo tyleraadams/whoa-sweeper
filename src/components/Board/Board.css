@@ -21,13 +21,13 @@
 }
 
 .board__space--flagged {
-  background: url('/flag.png') no-repeat no-repeat center;
+  background: url('/whoa_sweeper/flag.png') no-repeat no-repeat center;
   background-size: 50%;
   background-color: #DDDDDD;
 }
 
 .board__space--revealed--mine {
-  background: url('/mine.png') no-repeat no-repeat center;
+  background: url('/whoa_sweeper/mine.png') no-repeat no-repeat center;
   background-size: 50%;
   background-color: #FF4136;
 }
@@ -67,7 +67,6 @@
 .board__value--revealed--mine {
   display: none;
 }
-
 
 .messages {
   min-height: 18px;
