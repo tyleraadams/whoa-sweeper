@@ -92,7 +92,7 @@ export default function updateBoard(board, rowIndex, spaceIndex, isRightClick) {
     rightClick: function() {
       return [ ...board.slice(0, rowIndex),
         [...board[rowIndex].slice(0, spaceIndex),
-        { value: clickedSpace.value , flagged: true },
+        { value: clickedSpace.value , flagged: !clickedSpace.flagged },
         ...board[rowIndex].slice(spaceIndex + 1, board[rowIndex].length) ],
         ...board.slice(rowIndex + 1, board.length )
       ];
