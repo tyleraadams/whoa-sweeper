@@ -6,6 +6,17 @@ import updateBoard from '../../utils/update_board';
 import makeGameBoard from '../../../gameboard';
 import getGameDifficulty from '../../../utils/get_game_difficulty';
 
+function determineIfRightClick(e) {
+  let isRightMB;
+  if ("which" in e) { // Gecko (Firefox), WebKit (Safari/Chrome) & Opera
+    isRightMB = e.which === 3;
+  } else if ("button" in e)  {  // IE, Opera
+    isRightMB = e.button === 2;
+  }
+
+  return isRightMB;
+}
+
 class Board extends Component {
 	constructor(props) {
 		super();
@@ -32,11 +43,14 @@ class Board extends Component {
 	}
 
 	handleClick(event) {
+    event.preventDefault();
+    const isRightClick = determineIfRightClick(event);
+
 		const row = Number(event.target.getAttribute('data-row'));
 		const space = Number(event.target.getAttribute('data-space'));
 
 		this.setState({
-			gameBoard: updateBoard(this.state.gameBoard, row, space)(this.props.onGameStatusChange)
+			gameBoard: updateBoard(this.state.gameBoard, row, space, isRightClick)(this.props.onGameStatusChange)
 		});
 	}
 
@@ -44,7 +58,7 @@ class Board extends Component {
 
   	return (
       <div className="board">
-        {this.state.gameBoard.map((row, rowIndex) => row.map((space, spaceIndex) => <Space onClick={this.state.inProgress ? this.handleClick.bind(this) : ''} value={space.value} size={row.length} revealed={space.revealed} row={rowIndex} space={spaceIndex}/>))}
+        {this.state.gameBoard.map((row, rowIndex) => row.map((space, spaceIndex) => <Space onClick={this.state.inProgress ? this.handleClick.bind(this) : ''} onContextMenu={this.handleClick.bind(this)} value={space.value} size={row.length} revealed={space.revealed} row={rowIndex} space={spaceIndex} flagged={space.flagged}/>))}
       </div>
     );
   }

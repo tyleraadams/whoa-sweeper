@@ -9,18 +9,28 @@
 }
 
 .board__space {
-  background: blue;
-  border: 1px solid black;
+  background: #DDDDDD;
+  border: 0.5px solid #AAAAAA;
   flex-basis: calc((100% - 18px)/9);
   max-width: calc((100% - 18px)/9);
   position: relative;
 }
+
 .board__space--revealed {
-   background: grey;
+  background: #ccc;
+}
+
+.board__space--flagged {
+  background: url('/flag.png') no-repeat no-repeat center;
+  background-size: 50%;
+  background-color: #DDDDDD;
 }
 .board__space--revealed--mine {
-   background: red;
+  background: url('/mine.png') no-repeat no-repeat center;
+  background-size: 50%;
+  background-color: #FF4136;
 }
+
 .board__space--9 {
   padding-top: calc((100% - 18px)/9);
   flex-basis: calc((100% - 18px)/9);

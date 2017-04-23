@@ -45,9 +45,9 @@ function recurse(spaceIndex, rowIndex, newBoard) {
   surroundingCoords.forEach(pair => revealSurrounding(pair,newBoard))
 }
 
-export default function updateBoard(board, rowIndex, spaceIndex) {
-  const clickedSpace = board[rowIndex][spaceIndex]
-  const value = clickedSpace.value;
+export default function updateBoard(board, rowIndex, spaceIndex, isRightClick) {
+  const clickedSpace = board[rowIndex][spaceIndex];
+  const value = isRightClick ? 'rightClick' : clickedSpace.value;
 
   const lookup = {
     x: function(onGameStatusChange) {
@@ -70,6 +70,14 @@ export default function updateBoard(board, rowIndex, spaceIndex) {
       recurse(spaceIndex, rowIndex, newBoard)
       return newBoard;
     },
+    rightClick: function() {
+      return [ ...board.slice(0, rowIndex),
+        [...board[rowIndex].slice(0, spaceIndex),
+        { value: clickedSpace.value , flagged: true },
+        ...board[rowIndex].slice(spaceIndex + 1, board[rowIndex].length ) ],
+        ...board.slice(rowIndex + 1, board.length )
+      ];
+    },
     isAdjacent: function(onGameStatusChange) {
       return [ ...board.slice(0, rowIndex),
         [...board[rowIndex].slice(0, spaceIndex),
@@ -79,6 +87,5 @@ export default function updateBoard(board, rowIndex, spaceIndex) {
       ];
     }
   };
-
-  return lookup[value] || lookup.isAdjacent
+  return lookup[value] || lookup.isAdjacent;
 };
