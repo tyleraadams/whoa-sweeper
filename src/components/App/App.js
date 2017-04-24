@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import getAppConfig from '../../config/app';
 import './App.css';
 import Board from '../Board/Board';
 import Messages from '../Messages/Messages';
 import SetDifficulty from '../SetDifficulty/SetDifficulty';
+
+const appConfig = getAppConfig();
 
 class App extends Component {
   constructor() {
@@ -25,7 +28,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>MYNE SWEEPER</h2>
+          <h1>{appConfig.name}</h1>
         </div>
         <Messages status={this.state.gameStatus} />
         <SetDifficulty onChange={this.onChange.bind(this)}/>
