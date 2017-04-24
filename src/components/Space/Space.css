@@ -9,13 +9,13 @@
 }
 
 .board__space--flagged {
-  background: url('http:/tyleraadams/whoa-sweeper/flag.png') no-repeat no-repeat center;
+  background: url('/whoa-sweeper/flag.png') no-repeat no-repeat center;
   background-size: 50%;
   background-color: #DDDDDD;
 }
 
 .board__space--revealed--mine {
-  background: url('http:/tyleraadams/whoa-sweeper/mine.png') no-repeat no-repeat center;
+  background: url('/whoa-sweeper/mine.png') no-repeat no-repeat center;
   background-size: 50%;
   background-color: #FF4136;
 }
