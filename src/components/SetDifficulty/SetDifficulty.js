@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import get from 'lodash/get';
 import './SetDifficulty.css';
 const userAgent = get(navigator, 'userAgent');
-console.log('>>> ', userAgent.indexOf('firefox'))
 const isFirefox = typeof userAgent === 'string' ? userAgent.toLowerCase().indexOf('firefox') > -1 : false;
-
 
 class SetDifficulty extends Component {
 	render() {

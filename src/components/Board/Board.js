@@ -28,7 +28,7 @@ class Board extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.difficulty !== this.props.difficulty) {
+		if (nextProps.difficulty !== this.props.difficulty || nextProps.gameStatus === 'rando') {
       this.setState({
         gameBoard: createSpaceModels(makeGameBoard(getGameDifficulty(nextProps.difficulty)))
       })
