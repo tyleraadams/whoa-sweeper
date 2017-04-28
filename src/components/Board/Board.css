@@ -11,3 +11,10 @@
   border-width: 1px 0 0 1px;
   margin-bottom: 50px;
 }
+
+@media only screen and (max-device-width: 667px) {
+  .board {
+    max-width: none;
+    width: 90%;
+  }
+}
