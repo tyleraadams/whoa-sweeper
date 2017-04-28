@@ -16,9 +16,7 @@ class App extends Component {
       gameStatus: 'inProgress'
     }
   }
-  shouldComponentUpdate() {
-    return this.state.gameStatus === 'rando';
-  }
+
   onChange(event) {
     this.setState({ difficulty: event.target.value})
   }
@@ -34,7 +32,10 @@ class App extends Component {
           <h1>{appConfig.name}</h1>
         </div>
         <Messages status={this.state.gameStatus} />
-        <Smiley gameStatus={this.state.gameStatus} onClick={this.onGameStatusChange.bind(this)} />
+        <Smiley
+          gameStatus={this.state.gameStatus}
+          onClick={this.onGameStatusChange.bind(this)}
+        />
         <SetDifficulty onChange={this.onChange.bind(this)}/>
         <Board
           difficulty={this.state.difficulty}
