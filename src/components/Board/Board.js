@@ -58,7 +58,18 @@ class Board extends Component {
 
   	return (
       <div className="board">
-        {this.state.gameBoard.map((row, rowIndex) => row.map((space, spaceIndex) => <Space onClick={this.state.inProgress ? this.handleClick.bind(this) : ''} onContextMenu={this.handleClick.bind(this)} value={space.value} size={row.length} revealed={space.revealed} row={rowIndex} space={spaceIndex} flagged={space.flagged}/>))}
+        {this.state.gameBoard.map((row, rowIndex) => row.map((space, spaceIndex) => (
+          <Space
+            onClick={this.state.inProgress ? this.handleClick.bind(this) : ''}
+            onContextMenu={this.handleClick.bind(this)}
+            value={space.value}
+            size={row.length}
+            revealed={space.revealed}
+            row={rowIndex}
+            space={spaceIndex}
+            flagged={space.flagged}
+          />
+        )))}
       </div>
     );
   }

@@ -4,21 +4,28 @@
   padding-bottom: 100%;
   cursor: pointer;
 }
+
 .board__space:hover {
-  background: #EEEEEE;
+  background-color: #EEEEEE;
 }
+
 .board__space--revealed {
   background: #ccc;
   cursor: default;
 }
 
 .board__space--revealed:hover  {
-   background: #ccc;
+   background-color: #ccc;
 }
 
 .board__space--flagged {
   background: url('/whoa-sweeper/flag.png') no-repeat no-repeat center;
   background-size: 50%;
+  background-color: #DDDDDD;
+  cursor: default;
+}
+
+.board__space--flagged:hover {
   background-color: #DDDDDD;
 }
 
