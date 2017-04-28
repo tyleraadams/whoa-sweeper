@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h1>{appConfig.name}</h1>
+          <h1><span>{appConfig.name}</span></h1>
         </div>
         <Messages status={this.state.gameStatus} />
         <Smiley

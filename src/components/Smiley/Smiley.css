@@ -8,8 +8,14 @@
   margin-right: 25px;
   top: 10px;
   position: relative;
+  cursor: pointer;
+  outline: none;
 }
 
-.smiley-button  img {
+.smiley-button img {
   width: 100%;
+}
+
+.smiley-button img:hover {
+  opacity: 0.8;
 }

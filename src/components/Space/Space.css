@@ -2,10 +2,18 @@
   background: #DDDDDD;
   position: relative;
   padding-bottom: 100%;
+  cursor: pointer;
 }
-
+.board__space:hover {
+  background: #EEEEEE;
+}
 .board__space--revealed {
   background: #ccc;
+  cursor: default;
+}
+
+.board__space--revealed:hover  {
+   background: #ccc;
 }
 
 .board__space--flagged {

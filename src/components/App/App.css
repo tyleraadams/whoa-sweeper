@@ -3,8 +3,37 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 60px;
-  padding: 20px;
-  color: white;
+  background-color: #708090 ;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #fff;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h1 span {
+  position: relative;
+}
+
+h1 span::before,
+h1 span::after {
+  display: block;
+  content: "";
+  background: url('/mine.png') center center no-repeat;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+h1 span::before {
+  left: -36px;
+}
+
+h1 span::after {
+  right: -36px;
 }
