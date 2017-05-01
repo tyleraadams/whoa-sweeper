@@ -6,11 +6,15 @@ const isFirefox = typeof userAgent === 'string' ? userAgent.toLowerCase().indexO
 
 class SetDifficulty extends Component {
 	render() {
-		return (<select className={`set-difficulty ${isFirefox ? 'set-difficulty--firefox' : ''}`} onChange={this.props.onChange}>
-			<option value="easy">Easy</option>
-			<option value="medium">Medium</option>
-			<option value="hard">Hard</option>
-		</select>);
+		return (
+      <select
+        className={`set-difficulty ${isFirefox ? 'set-difficulty--firefox' : ''}`}
+        onChange={this.props.onChange}
+      >
+  			<option value="easy">Easy</option>
+  			<option value="medium">Medium</option>
+  			<option value="hard">Hard</option>
+		  </select>);
 	}
 }
 

@@ -3,6 +3,7 @@ import getAppConfig from '../../config/app';
 import './App.css';
 import Board from '../Board/Board';
 import Smiley from '../Smiley/Smiley';
+import Timer from '../Timer/Timer';
 import Messages from '../Messages/Messages';
 import SetDifficulty from '../SetDifficulty/SetDifficulty';
 
@@ -18,7 +19,7 @@ class App extends Component {
   }
 
   onChange(event) {
-    this.setState({ difficulty: event.target.value})
+    this.setState({ difficulty: event.target.value });
   }
 
   onGameStatusChange(status) {
@@ -36,6 +37,7 @@ class App extends Component {
           gameStatus={this.state.gameStatus}
           onClick={this.onGameStatusChange.bind(this)}
         />
+        <Timer gameStatus={this.state.gameStatus} />
         <SetDifficulty onChange={this.onChange.bind(this)}/>
         <Board
           difficulty={this.state.difficulty}
