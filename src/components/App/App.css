@@ -7,10 +7,32 @@
   padding-top: 5px;
   padding-bottom: 5px;
   color: #fff;
+  position: relative;
+}
+
+.menu-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-bar__inner {
+  display: flex;
+  width: 50%;
+  max-width: 450px;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #C2CBCE;
+  border-bottom: 0;
+  border-style: solid;
+  border-color: #AAAAAA;
+  border-width: 1px 1px 0 0;
 }
 
 h1 {
   font-size: 30px;
+  flex: 0 1 100%;
 }
 
 h1 span {
@@ -21,7 +43,7 @@ h1 span::before,
 h1 span::after {
   display: block;
   content: "";
-  background: url('/mine.png') center center no-repeat;
+  background: url('/whoa-sweeper/mine.png') center center no-repeat;
   background-size: contain;
   width: 30px;
   height: 30px;
@@ -36,4 +58,11 @@ h1 span::before {
 
 h1 span::after {
   right: -36px;
+}
+
+@media only screen and (max-device-width: 667px) {
+  .menu-bar__inner {
+    max-width: none;
+    width: 90%;
+  }
 }

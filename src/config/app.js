@@ -2,9 +2,9 @@ export default function getAppConfig() {
   return {
     name: 'Whoa Sweeper',
     smiley: {
-      lost: '/dead.png',
-      won: '/won.png',
-      inProgress: '/smiley.png'
+      lost: '/whoa-sweeper/dead.png',
+      won: '/whoa-sweeper/won.png',
+      inProgress: '/whoa-sweeper/smiley.png'
     }
   };
 }

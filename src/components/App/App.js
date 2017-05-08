@@ -18,8 +18,8 @@ class App extends Component {
     }
   }
 
-  onChange(event) {
-    this.setState({ difficulty: event.target.value });
+  onChange(value) {
+    this.setState({ difficulty: value, gameStatus: 'restart' });
   }
 
   onGameStatusChange(status) {
@@ -33,12 +33,16 @@ class App extends Component {
           <h1><span>{appConfig.name}</span></h1>
         </div>
         <Messages status={this.state.gameStatus} />
-        <Smiley
-          gameStatus={this.state.gameStatus}
-          onClick={this.onGameStatusChange.bind(this)}
-        />
-        <Timer gameStatus={this.state.gameStatus} />
-        <SetDifficulty onChange={this.onChange.bind(this)}/>
+        <div className="menu-bar">
+         <div className="menu-bar__inner">
+          <Smiley
+            gameStatus={this.state.gameStatus}
+            onClick={this.onGameStatusChange.bind(this)}
+          />
+          <SetDifficulty onChange={this.onChange.bind(this)}/>
+          <Timer gameStatus={this.state.gameStatus} />
+          </div>
+          </div>
         <Board
           difficulty={this.state.difficulty}
           gameStatus={this.state.gameStatus}

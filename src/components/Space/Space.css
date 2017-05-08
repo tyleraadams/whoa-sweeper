@@ -19,7 +19,7 @@
 }
 
 .board__space--flagged {
-  background: url('/flag.png') no-repeat no-repeat center;
+  background: url('/whoa-sweeper/flag.png') no-repeat no-repeat center;
   background-size: 50%;
   background-color: #DDDDDD;
   cursor: default;
@@ -30,8 +30,12 @@
 }
 
 .board__space--revealed--mine {
-  background: url('/mine.png') no-repeat no-repeat center;
+  background: url('/whoa-sweeper/mine.png') no-repeat no-repeat center;
   background-size: 50%;
+  background-color: #FF4136;
+}
+
+.board__space--revealed--mine:hover {
   background-color: #FF4136;
 }
 

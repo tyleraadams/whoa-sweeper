@@ -16,6 +16,7 @@ class Smiley extends Component {
 
   render() {
     return (
+      <div className="smiley-wrapper">
       <button
         className="smiley-button"
         onClick={e => {
@@ -24,6 +25,7 @@ class Smiley extends Component {
         }}>
         <img src={model[this.state.status]} alt="smiley" />
       </button>
+      </div>
     );
   }
 }

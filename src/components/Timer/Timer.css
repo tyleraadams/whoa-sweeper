@@ -1,0 +1,19 @@
+.timer {
+  font-size: 1.2em;
+  font-family: 'Courier';
+  background: black;
+  width: 40px;
+  height: 40px;
+  background: #D5DAE2;
+  border-left: 0;
+  position: relative;
+}
+
+.timer__inner {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

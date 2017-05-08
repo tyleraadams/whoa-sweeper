@@ -1,20 +1,39 @@
 import React, { Component } from 'react';
+import Select from 'react-select';
 import get from 'lodash/get';
 import './SetDifficulty.css';
-const userAgent = get(navigator, 'userAgent');
-const isFirefox = typeof userAgent === 'string' ? userAgent.toLowerCase().indexOf('firefox') > -1 : false;
+import './ReactSelect.css';
+import options from './difficulty_model.json';
 
 class SetDifficulty extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      value: 'easy'
+    };
+
+    this.setValue = this.setValue.bind(this);
+  }
+
+  setValue(value) {
+    const difficulty = get(value, 'value');
+    this.setState({ value: difficulty });
+    this.props.onChange(difficulty);
+  }
+
 	render() {
 		return (
-      <select
-        className={`set-difficulty ${isFirefox ? 'set-difficulty--firefox' : ''}`}
-        onChange={this.props.onChange}
-      >
-  			<option value="easy">Easy</option>
-  			<option value="medium">Medium</option>
-  			<option value="hard">Hard</option>
-		  </select>);
+      <div className="select-wrapper">
+      <Select
+        name="form-field-name"
+        options={options}
+        onChange={this.setValue}
+        value={this.state.value}
+        clearable={false}
+        className="select"
+      />
+     </div>);
 	}
 }
 
