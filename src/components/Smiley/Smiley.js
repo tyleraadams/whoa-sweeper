@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Smiley.css';
-import getAppConfig from '../../config/app';
+import appConfig from '../../config/app';
 
-const model = getAppConfig().smiley;
+const model = appConfig.smiley;
 
 class Smiley extends Component {
   constructor(props) {

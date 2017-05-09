@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import getAppConfig from '../../config/app';
+import randomKey from 'random-key';
+import appConfig from '../../config/app';
 import './App.css';
 import Board from '../Board/Board';
 import Smiley from '../Smiley/Smiley';
 import Timer from '../Timer/Timer';
 import Messages from '../Messages/Messages';
 import SetDifficulty from '../SetDifficulty/SetDifficulty';
-
-const appConfig = getAppConfig();
+import ScoreBoard from '../Scoreboard/Scoreboard';
 
 class App extends Component {
   constructor() {
@@ -23,7 +23,16 @@ class App extends Component {
   }
 
   onGameStatusChange(status) {
-    this.setState({ gameStatus: status})
+    const newState = { gameStatus: status};
+    if (status === 'won') {
+      newState.lastWin = randomKey.generate();
+    }
+
+    this.setState(newState);
+  }
+
+  onWin(time) {
+    this.setState({ time })
   }
 
   render() {
@@ -34,19 +43,27 @@ class App extends Component {
         </div>
         <Messages status={this.state.gameStatus} />
         <div className="menu-bar">
-         <div className="menu-bar__inner">
-          <Smiley
-            gameStatus={this.state.gameStatus}
-            onClick={this.onGameStatusChange.bind(this)}
-          />
-          <SetDifficulty onChange={this.onChange.bind(this)}/>
-          <Timer gameStatus={this.state.gameStatus} />
+          <div className="menu-bar__inner">
+            <Smiley
+              gameStatus={this.state.gameStatus}
+              onClick={this.onGameStatusChange.bind(this)}
+            />
+            <SetDifficulty onChange={this.onChange.bind(this)}/>
+            <Timer
+              gameStatus={this.state.gameStatus}
+              onWin={this.onWin.bind(this)}
+            />
           </div>
-          </div>
+        </div>
         <Board
           difficulty={this.state.difficulty}
           gameStatus={this.state.gameStatus}
           onGameStatusChange={this.onGameStatusChange.bind(this)}
+        />
+        <ScoreBoard
+          gameStatus={this.state.lastWin}
+          difficulty={this.state.difficulty}
+          time={this.state.time}
         />
       </div>
     );

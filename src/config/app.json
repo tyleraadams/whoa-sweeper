@@ -1,0 +1,8 @@
+{
+  "name": "Whoa Sweeper",
+  "smiley": {
+    "lost": "https://tyleraadams.com/whoa-sweeper/dead.png",
+    "won": "https://tyleraadams.com/whoa-sweeper/won.png",
+    "inProgress": "https://tyleraadams.com/whoa-sweeper/smiley.png"
+  }
+}

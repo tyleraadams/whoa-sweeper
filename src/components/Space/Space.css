@@ -19,7 +19,7 @@
 }
 
 .board__space--flagged {
-  background: url('/whoa-sweeper/flag.png') no-repeat no-repeat center;
+  background: url('https://tyleraadams.com/whoa-sweeper/flag.png') no-repeat no-repeat center;
   background-size: 50%;
   background-color: #DDDDDD;
   cursor: default;
@@ -30,7 +30,7 @@
 }
 
 .board__space--revealed--mine {
-  background: url('/whoa-sweeper/mine.png') no-repeat no-repeat center;
+  background: url('https://tyleraadams.com/whoa-sweeper/mine.png') no-repeat no-repeat center;
   background-size: 50%;
   background-color: #FF4136;
 }

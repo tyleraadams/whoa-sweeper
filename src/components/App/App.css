@@ -43,7 +43,7 @@ h1 span::before,
 h1 span::after {
   display: block;
   content: "";
-  background: url('/whoa-sweeper/mine.png') center center no-repeat;
+  background: url('https://tyleraadams.com/whoa-sweeper/mine.png') center center no-repeat;
   background-size: contain;
   width: 30px;
   height: 30px;

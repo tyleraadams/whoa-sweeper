@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "lodash": "^4.17.4",
+    "random-key": "^0.3.2",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-input-autosize": "^1.1.0",

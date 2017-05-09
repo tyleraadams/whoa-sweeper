@@ -10,6 +10,7 @@ class Timer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+
     if (nextProps.gameStatus === 'restart') {
       this.setState({time: 0})
     }
@@ -17,6 +18,9 @@ class Timer extends Component {
       this.startTimer();
     } else {
       this.endTimer();
+    }
+    if (nextProps.gameStatus === 'won') {
+      this.props.onWin(this.state.time);
     }
   }
 
