@@ -19,7 +19,7 @@ class ScoreBoard extends Component {
         difficulty: nextProps.difficulty,
         time: nextProps.lastGameDuration,
         id: nextProps.id
-      });
+      })
     });
     }
 
