@@ -23,16 +23,13 @@ class App extends Component {
   }
 
   onGameStatusChange(status) {
-    const newState = { gameStatus: status};
-    if (status === 'won') {
-      newState.lastWin = randomKey.generate();
-    }
+    const newState = { gameStatus: status };
 
     this.setState(newState);
   }
 
-  onWin(time) {
-    this.setState({ time })
+  onWin(lastGameDuration) {
+    this.setState({ lastGameDuration, lastWin: randomKey.generate() });
   }
 
   render() {
@@ -42,6 +39,8 @@ class App extends Component {
           <h1><span>{appConfig.name}</span></h1>
         </div>
         <Messages status={this.state.gameStatus} />
+         <div className="layout">
+         <div className="menu-board-wrapper">
         <div className="menu-bar">
           <div className="menu-bar__inner">
             <Smiley
@@ -60,11 +59,13 @@ class App extends Component {
           gameStatus={this.state.gameStatus}
           onGameStatusChange={this.onGameStatusChange.bind(this)}
         />
+        </div>
         <ScoreBoard
-          gameStatus={this.state.lastWin}
+          id={this.state.lastWin}
           difficulty={this.state.difficulty}
-          time={this.state.time}
+          lastGameDuration={this.state.lastGameDuration}
         />
+        </div>
       </div>
     );
   }

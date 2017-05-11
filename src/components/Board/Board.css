@@ -1,19 +1,17 @@
 .board {
   display: flex;
   flex-flow: row wrap;
-  width: 50%;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
   border-style: solid;
   border-color: #AAAAAA;
   border-width: 1px 0 0 1px;
   margin-bottom: 50px;
 }
 
-@media only screen and (max-device-width: 667px) {
+@media only screen and (max-width: 667px) {
   .board {
     max-width: none;
-    width: 90%;
+    width: 100%;
+    margin-bottom: 10px;
   }
 }

@@ -19,7 +19,7 @@ class Timer extends Component {
     } else {
       this.endTimer();
     }
-    if (nextProps.gameStatus === 'won') {
+    if (this.props.gameStatus !== 'won' && nextProps.gameStatus === 'won') {
       this.props.onWin(this.state.time);
     }
   }

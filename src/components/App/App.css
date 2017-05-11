@@ -9,17 +9,22 @@
   color: #fff;
   position: relative;
 }
+.menu-board-wrapper {
+  width: 50%;
+  max-width: 525px;
 
+}
 .menu-bar {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .menu-bar__inner {
   display: flex;
-  width: 50%;
-  max-width: 450px;
+  width: 100%;
+  /*max-width: 450px;*/
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
@@ -60,9 +65,21 @@ h1 span::after {
   right: -36px;
 }
 
-@media only screen and (max-device-width: 667px) {
+.layout {
+  display: flex;
+  max-width: 1280px;
+  justify-content: center;
+}
+@media only screen and (max-width: 667px) {
+  .layout {
+    display: block;
+  }
+  .menu-board-wrapper {
+    width: 90%;
+    max-width: none;
+    margin: 0 auto;
+  }
   .menu-bar__inner {
     max-width: none;
-    width: 90%;
   }
 }
