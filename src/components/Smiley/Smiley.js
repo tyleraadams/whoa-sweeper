@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Smiley.css';
 import appConfig from '../../config/app';
 
@@ -29,5 +30,10 @@ class Smiley extends Component {
     );
   }
 }
+
+Smiley.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  gameStatus: PropTypes.string.isRequired
+};
 
 export default Smiley;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Board.css';
 import Space from '../Space/Space';
 import createSpaceModels from '../../utils/create_space_models';
@@ -74,5 +75,11 @@ class Board extends Component {
     );
   }
 }
+
+Board.propTypes = {
+  difficulty: PropTypes.string.isRequired,
+  gameStatus: PropTypes.string.isRequired,
+  onGameStatusChange: PropTypes.func.isRequired
+};
 
 export default Board;

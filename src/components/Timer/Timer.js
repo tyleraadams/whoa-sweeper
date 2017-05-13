@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Timer.css';
 class Timer extends Component {
   constructor() {
@@ -38,8 +39,19 @@ class Timer extends Component {
   }
 
   render() {
-    return <div className="timer"><div className="timer__inner">{this.state.time}</div></div>
+    return (
+      <div className="timer">
+        <div className="timer__inner">{this.state.time}
+        </div>
+      </div>
+    );
   }
 }
+
+Timer.propTypes = {
+  gameStatus: PropTypes.string.isRequired,
+  onWin: PropTypes.func.isRequired
+};
+
 
 export default Timer;

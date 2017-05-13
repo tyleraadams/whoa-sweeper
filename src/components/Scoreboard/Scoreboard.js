@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Model from '../../models/scoreboard.js'
 import './Scoreboard.css';
@@ -6,7 +7,7 @@ import './Scoreboard.css';
 class ScoreBoard extends Component {
   constructor(props) {
     super();
-    this.model = new Model(window.localStorage)
+    this.model = new Model(window.localStorage);
     const previousWins = this.model.getScores();
     this.state =  { wins: previousWins || [] };
   }
@@ -34,25 +35,35 @@ class ScoreBoard extends Component {
   }
 
   render() {
-    return <div className="scoreboard">
-    <h3>Score Board</h3>
-    <table>
-      <thead>
-        <tr>
-            <td>Player</td>
-            <td>Difficulty</td>
-            <td>Time</td>
-        </tr>
-    </thead>
-      {this.state.wins.map(win => (
-        <tr key={win.id}>
-          <td>{win.name}</td>
-          <td>{win.difficulty}</td>
-          <td>{win.time}</td>
-        </tr>))}
-    </table>
-    </div>
+    return (
+      <div className="scoreboard">
+        <h3>Score Board</h3>
+        <table>
+          <thead>
+            <tr>
+                <td>Player</td>
+                <td>Difficulty</td>
+                <td>Time</td>
+            </tr>
+          </thead>
+          <tbody>
+          {this.state.wins.map(win => (
+            <tr key={win.id}>
+              <td>{win.name}</td>
+              <td>{win.difficulty}</td>
+              <td>{win.time}</td>
+            </tr>))}
+          </tbody>
+        </table>
+      </div>
+    );
   }
 }
+
+ScoreBoard.propTypes = {
+  difficulty: PropTypes.string,
+  lastGameDuration: PropTypes.number,
+  id: PropTypes.string
+};
 
 export default ScoreBoard;

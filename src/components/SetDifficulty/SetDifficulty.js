@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import get from 'lodash/get';
 import './SetDifficulty.css';
@@ -36,5 +37,9 @@ class SetDifficulty extends Component {
      </div>);
 	}
 }
+
+SetDifficulty.propTypes = {
+  onChange: PropTypes.func.isRequired
+};
 
 export default SetDifficulty;
