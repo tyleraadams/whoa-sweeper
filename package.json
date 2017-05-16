@@ -13,7 +13,9 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-input-autosize": "^1.1.0",
-    "react-select": "^1.0.0-rc.3"
+    "react-redux": "^5.0.4",
+    "react-select": "^1.0.0-rc.3",
+    "redux": "^3.6.0"
   },
   "scripts": {
     "start": "react-scripts start",

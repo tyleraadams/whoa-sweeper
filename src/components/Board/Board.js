@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './Board.css';
 import Space from '../Space/Space';
-import createSpaceModels from '../../utils/create_space_models';
+import makeGameBoard from '../../models/gameboard';
+import createSpaceModels from '../../models/spaces';
 import updateBoard from '../../utils/update_board';
-import makeGameBoard from '../../utils/gameboard';
 import getGameDifficulty from '../../utils/get_game_difficulty';
 
 function determineIfRightClick(e) {
@@ -23,8 +24,8 @@ class Board extends Component {
 		super();
 
 		this.state = {
-      gameBoard: createSpaceModels(makeGameBoard(getGameDifficulty(props.difficulty))),
-      inProgress: true
+      // gameBoard: createSpaceModels(makeGameBoard(getGameDifficulty(props.difficulty))),
+      // inProgress: true
     };
 	}
 
@@ -59,7 +60,7 @@ class Board extends Component {
 
   	return (
       <div className="board">
-        {this.state.gameBoard.map((row, rowIndex) => row.map((space, spaceIndex) => (
+        {this.props.gameBoard.map((row, rowIndex) => row.map((space, spaceIndex) => (
           <Space
             onClick={this.state.inProgress ? this.handleClick.bind(this) : ''}
             onContextMenu={this.handleClick.bind(this)}
@@ -82,4 +83,10 @@ Board.propTypes = {
   onGameStatusChange: PropTypes.func.isRequired
 };
 
-export default Board;
+function mapStateToProps(state) {
+  return {
+    gameBoard: state.gameboard
+  };
+}
+
+export default connect(mapStateToProps)(Board);
